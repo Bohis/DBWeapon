@@ -1,0 +1,318 @@
+﻿<Window x:Class="WeAndArDbase.View.FormDeleted"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:WeAndArDbase.View"
+		mc:Ignorable="d"
+		Title="Удаление записей"
+		Height="600"
+		Width="1200"
+		MinHeight="600"
+		MinWidth="1000"
+		Icon="/icons/Edit.png"
+		Background="Black"
+		WindowStartupLocation="CenterScreen"
+		BorderBrush="Black"
+		BorderThickness="3">
+
+	<Window.Resources>
+		<Style TargetType="TextBlock"
+			   x:Key="TextBlockNames">
+			<Setter Property="FontFamily"
+					Value="sans-serif" />
+			<Setter Property="FontSize"
+					Value="15" />
+			<Setter Property="Margin"
+					Value="3,3,3,3" />
+			<Setter Property="HorizontalAlignment"
+					Value="Center" />
+			<Setter Property="VerticalAlignment"
+					Value="Center" />
+			<Setter Property="TextWrapping"
+					Value="Wrap" />
+			<Setter Property="FontWeight"
+					Value="Black" />
+		</Style>
+
+		<Style TargetType="DataGrid"
+			   x:Key="DataGridCeil">
+			<Setter Property="Background"
+					Value="#66A3D2" />
+			<Setter Property="Margin"
+					Value="3,3,3,3" />
+			<Setter Property="FontFamily"
+					Value="TimesNewRoman" />
+			<Setter Property="AutoGenerateColumns"
+					Value="False" />
+			<Setter Property="FontSize"
+					Value="15" />
+			<Setter Property="IsReadOnly"
+					Value="True" />
+			<Setter Property="CanUserAddRows"
+					Value="False" />
+		</Style>
+
+		<Style TargetType="Button"
+			   x:Key="ButtonRequest">
+			<Setter Property="Margin"
+					Value="25,10,25,10" />
+			<Setter Property="BorderBrush"
+					Value="Black" />
+			<Setter Property="BorderThickness"
+					Value="3" />
+			<Setter Property="FontSize"
+					Value="25" />
+			<Setter
+					Property="HorizontalContentAlignment"
+					Value="Center" />
+			<Setter
+					Property="VerticalContentAlignment"
+					Value="Center" />
+		</Style>
+
+	</Window.Resources>
+
+	<Grid ShowGridLines="False">
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="50" />
+		</Grid.RowDefinitions>
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="110" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+
+		<TabControl Name="TabControlEdit"
+					Grid.Column="1"
+					Margin="3,3,3,3"
+					Grid.ColumnSpan="2">
+			<!--=======================WEAPONITEM========================-->
+			<TabItem Name="TabItemsWeapons"
+					 Background="#67E6A7"
+					 Header="Оружие"
+					 FontSize="17"
+					 FontFamily="{StaticResource ResourceKey=GansFont}">
+
+				<Grid Background="#FFD3A3">
+					<DataGrid
+							Style="{StaticResource ResourceKey=DataGridCeil}"
+							  Name="DataGridWeapon"
+							  Grid.Column="1"
+							  Grid.Row="0"
+							  FontSize="20"
+							  ColumnWidth="auto"
+							  Grid.ColumnSpan="4"
+							  ItemsSource="{Binding WRList}">
+						<DataGrid.Columns>
+							<DataGridTextColumn
+									Header="Тип"
+												Binding="{Binding Type}" />
+							<DataGridTextColumn
+									Header="Название оружия"
+												Binding="{Binding NameWeapon}" />
+							<DataGridTextColumn
+									Header="Год разработки"
+												Binding="{Binding YearOfDeveloper}" />
+							<DataGridTextColumn
+									Header="Год принятия на вооружение"
+												Binding="{Binding AdopterOfYear}" />
+							<DataGridTextColumn
+									Header="Страна производитель"
+												Binding="{Binding CountryOfDeveloper}" />
+							<DataGridTextColumn
+									Header="Калибр"
+												Binding="{Binding CartridgeSize}" />
+							<DataGridTextColumn
+									Header="Скорострельность"
+												Binding="{Binding RateOfFire}" />
+							<DataGridTextColumn
+									Header="Дульная скорость пули"
+												Binding="{Binding StartingSpeed}" />
+							<DataGridTextColumn
+									Header="Дальность прицельной стрельбы"
+												Binding="{Binding SightingRange}" />
+							<DataGridTextColumn
+									Header="Полный вес оружия"
+												Binding="{Binding Weight}" />
+						</DataGrid.Columns>
+					</DataGrid>
+				</Grid>
+			</TabItem>
+
+			<!--=======================CARTRIDGEITEM=====================-->
+			<TabItem Name="TabItemsCartridge"
+					 Background="#67E6A7"
+					 Header="Патроы"
+					 FontSize="17"
+					 FontFamily="{StaticResource ResourceKey=GansFont}">
+
+				<Grid Background="#FFD3A3">
+					<DataGrid
+							Style="{StaticResource ResourceKey=DataGridCeil}"
+							  Name="DataGridCartridge"
+							  Grid.Column="1"
+							  Grid.Row="1"
+							  FontSize="20"
+							  ColumnWidth="*"
+							  Grid.ColumnSpan="4"
+							  ItemsSource="{Binding CRList}">
+						<DataGrid.Columns>
+							<DataGridTextColumn
+									Header="Диаметр"
+												Binding="{Binding Diameter}" />
+							<DataGridTextColumn
+									Header="Длина"
+												Binding="{Binding Lenght}" />
+							<DataGridTextColumn
+									Header="Масса"
+												Binding="{Binding Weight}" />
+							<DataGridTextColumn
+									Header="Описание"
+												Binding="{Binding Mark}" />
+						</DataGrid.Columns>
+					</DataGrid>
+				</Grid>
+			</TabItem>
+
+			<!--=======================ARMORITEM========================-->
+			<TabItem Name="TabItemsArmor"
+					 Background="#67E6A7"
+					 Header="Бронежилеты"
+					 FontSize="17"
+					 FontFamily="{StaticResource ResourceKey=GansFont}">
+
+				<Grid Background="#FFD3A3">
+					<DataGrid
+							Style="{StaticResource ResourceKey=DataGridCeil}"
+							  Name="DataGridArmor"
+							  Grid.Column="1"
+							  Grid.Row="1"
+							  FontSize="20"
+							  ColumnWidth="*"
+							  Grid.ColumnSpan="4"
+							  ItemsSource="{Binding ARList}">
+						<DataGrid.Columns>
+							<DataGridTextColumn
+									Header="Класс"
+												Binding="{Binding ClassKey}" />
+							<DataGridTextColumn
+									Header="Описание патрона"
+												Binding="{Binding NameMensDestruction}" />
+							<DataGridTextColumn
+									Header="Масса"
+												Binding="{Binding WeightB}" />
+							<DataGridTextColumn
+									Header="Дульная скорость"
+												Binding="{Binding SpeedB}" />
+						</DataGrid.Columns>
+					</DataGrid>
+				</Grid>
+			</TabItem>
+
+			<!--======================COUNTRYITEM=======================-->
+			<TabItem Name="TabItemsCountry"
+					 Background="#67E6A7"
+					 Header="Страны"
+					 FontSize="17"
+					 FontFamily="{StaticResource ResourceKey=GansFont}">
+
+				<Grid Background="#FFD3A3">
+					<DataGrid
+							Style="{StaticResource ResourceKey=DataGridCeil}"
+							  Name="DataGridCountry"
+							  Grid.Column="1"
+							  Grid.Row="1"
+							  FontSize="20"
+							  ColumnWidth="*"
+							  Grid.ColumnSpan="4"
+							  ItemsSource="{Binding CNRList}">
+						<DataGrid.Columns>
+							<DataGridTextColumn
+									Header="Название страны"
+												Binding="{Binding CountyName}" />
+						</DataGrid.Columns>
+					</DataGrid>
+				</Grid>
+			</TabItem>
+
+			<!--=======================WEAPONCATEGORYITEM==============-->
+			<TabItem Name="TabItemsWeaponCategory"
+					 Background="#67E6A7"
+					 Header="Тип оружия"
+					 FontSize="17"
+					 FontFamily="{StaticResource ResourceKey=GansFont}">
+
+				<Grid Background="#FFD3A3">
+					<DataGrid
+							Style="{StaticResource ResourceKey=DataGridCeil}"
+							  Name="DataGridWeaponCategory"
+							  Grid.Column="1"
+							  Grid.Row="1"
+							  ColumnWidth="*"
+							  FontSize="20"
+							  Grid.ColumnSpan="4"
+							  ItemsSource="{Binding WCRList}">
+						<DataGrid.Columns>
+							<DataGridTextColumn
+									Header="Тип оружия"
+												Binding="{Binding WeaponName}" />
+							<DataGridTextColumn
+									Header="Описание"
+												Binding="{Binding Description}" />
+						</DataGrid.Columns>
+					</DataGrid>
+				</Grid>
+			</TabItem>
+		</TabControl>
+
+
+		<Rectangle Grid.Column="0"
+				   Grid.ColumnSpan="3"
+				   Grid.Row="1"
+				   Fill="#FFD3A3"
+				   Margin="5,5,5,5" />
+
+		<Rectangle Grid.Column="0"
+				   Grid.Row="0"
+				   Grid.RowSpan="2"
+				   Fill="#FFD3A3"
+				   Margin="5,5,5,5" />
+
+		<Button Name="ButtonDeleted"
+				Margin="10,25,10,25"
+				Grid.Column="0"
+				Grid.Row="0"
+				FontFamily="{StaticResource GansFont}">
+			<TextBlock Text="Удалить выделенное"
+					   FontSize="22">
+				<TextBlock.LayoutTransform>
+					<RotateTransform Angle="-90" />
+				</TextBlock.LayoutTransform>
+			</TextBlock>
+		</Button>
+
+		<Button Name="ButtonUpdate"
+				Style="{StaticResource ResourceKey=ButtonRequest}"
+				Margin="10,5,10,10"
+				FontSize="16"
+				Height="auto"
+				Grid.Column="0"
+				Grid.Row="1">
+			Обновить
+		</Button>
+
+		<TextBlock  Name="TextBlocStatusUpdate"
+					Style="{StaticResource ResourceKey=TextBlockNames}"
+					FontSize="20"
+					Grid.Column="1"
+					Grid.Row="1"
+					HorizontalAlignment="Left"
+					Foreground="Gray"
+					Margin="3,3,3,3"
+					TextWrapping="NoWrap">
+		</TextBlock>
+	</Grid>
+</Window>

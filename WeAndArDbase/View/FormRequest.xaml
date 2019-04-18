@@ -1,0 +1,360 @@
+﻿<Window x:Class="WeAndArDbase.View.FormRequest"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:WeAndArDbase.View"
+		mc:Ignorable="d"
+		Title="Запрос к базе данных"
+		Height="800"
+		Width="1400"
+		MinHeight="800"
+		MinWidth="1400"
+		Background="Black"
+		BorderBrush="Black"
+		BorderThickness="3"
+		Icon="/icons/ListWork.png"
+		WindowStartupLocation="CenterScreen">
+
+	<Window.Resources>
+		<Style TargetType="TextBox"
+			   x:Key="TextBoxNewRecord">
+			<Setter Property="Margin"
+					Value="3,3,3,3" />
+			<Setter
+					Property="HorizontalContentAlignment"
+					Value="Center" />
+			<Setter
+					Property="VerticalContentAlignment"
+					Value="Center" />
+			<Setter Property="Height"
+					Value="40" />
+			<Setter Property="FontFamily"
+					Value="fantasy" />
+			<Setter Property="FontSize"
+					Value="17" />
+		</Style>
+
+		<Style TargetType="Button"
+			   x:Key="ButtonRequest">
+			<Setter Property="Margin"
+					Value="25,10,25,10" />
+			<Setter Property="BorderBrush"
+					Value="Black" />
+			<Setter Property="BorderThickness"
+					Value="3" />
+			<Setter Property="FontSize"
+					Value="25" />
+			<Setter
+					Property="HorizontalContentAlignment"
+					Value="Center" />
+			<Setter
+					Property="VerticalContentAlignment"
+					Value="Center" />
+			<Setter Property="FontFamily"
+					Value="{StaticResource ResourceKey=GansFont}" />
+		</Style>
+
+		<Style TargetType="ComboBox"
+			   x:Key="ComboBoxNameObject">
+			<Setter Property="FontFamily"
+					Value="sans-serif" />
+			<Setter Property="FontSize"
+					Value="15" />
+			<Setter Property="Margin"
+					Value="3,25,3,25" />
+			<Setter
+					Property="HorizontalContentAlignment"
+					Value="Center" />
+			<Setter
+					Property="VerticalContentAlignment"
+					Value="Center" />
+		</Style>
+
+		<Style TargetType="DataGrid"
+			   x:Key="DataGridCeil">
+			<Setter Property="Background"
+					Value="#66A3D2" />
+			<Setter Property="Margin"
+					Value="7,7,7,7" />
+			<Setter Property="FontFamily"
+					Value="TimesNewRoman" />
+			<Setter Property="AutoGenerateColumns"
+					Value="False" />
+			<Setter Property="IsReadOnly"
+					Value="True" />
+			<Setter Property="FontSize"
+					Value="15" />
+		</Style>
+
+		<Style TargetType="TextBlock"
+			   x:Key="TextBlockNames">
+			<Setter Property="FontFamily"
+					Value="sans-serif" />
+			<Setter Property="FontSize"
+					Value="19" />
+			<Setter Property="Margin"
+					Value="3,3,3,3" />
+			<Setter Property="HorizontalAlignment"
+					Value="Center" />
+			<Setter Property="VerticalAlignment"
+					Value="Center" />
+			<Setter Property="TextWrapping"
+					Value="Wrap" />
+			<Setter Property="FontWeight"
+					Value="Black" />
+		</Style>
+	</Window.Resources>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="230" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="60" />
+		</Grid.RowDefinitions>
+
+		<Rectangle Fill="#FFD3A3"
+				   Grid.Row="1"
+				   Margin="3,3,3,3" />
+
+		<Grid Background="#FFD3A3"
+			  Margin="3,3,3,3"
+			  Grid.ColumnSpan="2">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="0.7*" />
+				<RowDefinition />
+				<RowDefinition Height="0.7*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition Width="1.2*" />
+			</Grid.ColumnDefinitions>
+
+			<!--=======================TYPE===========================-->
+			<TextBlock Text="Тип:"
+					   Grid.Row="0"
+					   Style="{StaticResource ResourceKey=TextBlockNames}" />
+
+			<ComboBox Grid.Column="0"
+					  Grid.Row="1"
+					  Name="ComboBoxCategoryWeapon"
+					  Style="{StaticResource ResourceKey=ComboBoxNameObject}" />
+
+			<!--=======================NAMEWEAPON===========================-->
+			<TextBlock Text="Название оружия:"
+					   Grid.Row="0"
+					   Grid.Column="1"
+					   Style="{StaticResource ResourceKey=TextBlockNames}" />
+
+			<TextBox Grid.Column="1"
+					 Grid.Row="1"
+					 Name="TextBoxNameWeapon"
+					 Style="{StaticResource ResourceKey=TextBoxNewRecord}" />
+
+			<!--==========================YEAROFDEVELOPER========================-->
+			<TextBlock Text="Год разработки:"
+					   Grid.Row="0"
+					   Grid.Column="2"
+					   Style="{StaticResource ResourceKey=TextBlockNames}" />
+
+			<TextBox Grid.Column="2"
+					 Grid.Row="1"
+					 Name="TextBoxYearOfDeveloper"
+					 Style="{StaticResource ResourceKey=TextBoxNewRecord}" />
+
+			<!--==========================YEAROFADOPTER========================-->
+			<TextBlock Text="Год принятия:"
+					   Grid.Row="0"
+					   Grid.Column="3"
+					   Style="{StaticResource ResourceKey=TextBlockNames}" />
+
+			<TextBox Grid.Column="3"
+					 Grid.Row="1"
+					 Name="TextBoxYearOfAdopter"
+					 Style="{StaticResource ResourceKey=TextBoxNewRecord}" />
+
+			<!--==========================COUNTRYOFDEVELOPER========================-->
+			<TextBlock Text="Страна разработки:"
+					   Grid.Row="0"
+					   Grid.Column="4"
+					   Style="{StaticResource ResourceKey=TextBlockNames}" />
+
+			<ComboBox Grid.Column="4"
+					  Name="ComboBoxCountryOfDevelopment"
+					  Grid.Row="1"
+					  Style="{StaticResource ResourceKey=ComboBoxNameObject}" />
+
+			<!--==========================CARTRIDGESIZE========================-->
+			<TextBlock Text="Калибр:"
+					   Grid.Row="0"
+					   Grid.Column="5"
+					   Style="{StaticResource ResourceKey=TextBlockNames}" />
+
+			<ComboBox Grid.Column="5"
+					  Name="ComboBoxCartridgeSize"
+					  Grid.Row="1"
+					  Style="{StaticResource ResourceKey=ComboBoxNameObject}" />
+
+			<!--===========================RATEOFFIRE=======================-->
+			<TextBlock Text="Скорострельность:"
+					   Grid.Row="0"
+					   Grid.Column="6"
+					   Style="{StaticResource ResourceKey=TextBlockNames}" />
+
+			<TextBox Grid.Column="6"
+					 Grid.Row="1"
+					 Name="TextBoxRateOfFire"
+					 Style="{StaticResource ResourceKey=TextBoxNewRecord}" />
+
+			<!--============================STARTINGSPEED======================-->
+			<TextBlock Text="Дульная скорость:"
+					   Grid.Row="0"
+					   Grid.Column="7"
+					   Style="{StaticResource ResourceKey=TextBlockNames}" />
+
+			<TextBox Grid.Column="7"
+					 Grid.Row="1"
+					 Name="TextBoxStartingSpeed"
+					 Style="{StaticResource ResourceKey=TextBoxNewRecord}" />
+
+			<!--============================SIGHTINGRANGE======================-->
+			<TextBlock
+					Text="Прицельная дальность:"
+					   Grid.Row="0"
+					   Grid.Column="8"
+					   Style="{StaticResource ResourceKey=TextBlockNames}" />
+
+			<TextBox Grid.Column="8"
+					 Grid.Row="1"
+					 Name="TextBoxSightingRange"
+					 Style="{StaticResource ResourceKey=TextBoxNewRecord}" />
+
+			<!--============================WEIGHT======================-->
+			<TextBlock Text="Полный вес:"
+					   Grid.Row="0"
+					   Grid.Column="9"
+					   Style="{StaticResource ResourceKey=TextBlockNames}" />
+
+			<TextBox Grid.Column="9"
+					 Grid.Row="1"
+					 Name="TextBoxWeightW"
+					 Style="{StaticResource ResourceKey=TextBoxNewRecord}" />
+
+			<!--============================WEIGHT======================-->
+			<TextBlock Text="Класс пробиваймого бронeжилета:"
+					   Grid.Row="0"
+					   Grid.Column="10"
+					   Style="{StaticResource ResourceKey=TextBlockNames}" />
+
+			<ComboBox Grid.Column="10"
+					  Name="ComboBoxClassArmorDestroy"
+					  Grid.Row="1"
+					  Style="{StaticResource ResourceKey=ComboBoxNameObject}" />
+
+			<Button Grid.Column="0"
+					Grid.ColumnSpan="3"
+					Style="{StaticResource ResourceKey=ButtonRequest}"
+					Grid.Row="2"
+					Name="ButtonSearch">
+				Поиск
+			</Button>
+
+			<Button Grid.Column="3"
+					Grid.ColumnSpan="3"
+					Name="ButtonClear"
+					Style="{StaticResource ResourceKey=ButtonRequest}"
+					Grid.Row="2">
+				Очистить
+			</Button>
+
+			<TextBlock Style="{StaticResource ResourceKey=TextBlockNames}"
+					   Grid.Column="6"
+					   Grid.Row="2"
+					   Grid.ColumnSpan="5">
+				Для поиска нажмите кнопку ПОИСК.
+				Задать диапазон для поиска можно написав значения через "-".
+				Поиск будет осуществяться только по верным данным.
+			</TextBlock>
+		</Grid>
+
+		<DataGrid Name="DataGridMainField"
+				  Style="{StaticResource ResourceKey=DataGridCeil}"
+				  Grid.Column="1"
+				  Grid.Row="1"
+				  ColumnWidth="*"
+				  ItemsSource="{Binding WRList}">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Тип"
+									Binding="{Binding Type}" />
+				<DataGridTextColumn
+						Header="Название оружия"
+									Binding="{Binding NameWeapon}" />
+				<DataGridTextColumn
+						Header="Год разработки"
+									Binding="{Binding YearOfDeveloper}" />
+				<DataGridTextColumn
+						Header="Год принятия на вооружение"
+									Binding="{Binding AdopterOfYear}" />
+				<DataGridTextColumn
+						Header="Страна производитель"
+									Binding="{Binding CountryOfDeveloper}" />
+				<DataGridTextColumn
+						Header="Калибр"
+									Binding="{Binding CartridgeSize}" />
+				<DataGridTextColumn
+						Header="Скорострельность"
+									Binding="{Binding RateOfFire}" />
+				<DataGridTextColumn
+						Header="Дульная скорость пули"
+									Binding="{Binding StartingSpeed}" />
+				<DataGridTextColumn
+						Header="Дальность прицельной стрельбы"
+									Binding="{Binding SightingRange}" />
+				<DataGridTextColumn
+						Header="Полный вес оружия"
+									Binding="{Binding Weight}" />
+			</DataGrid.Columns>
+		</DataGrid>
+
+		<Grid Grid.Row="2" ShowGridLines="False">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="200" />
+				<ColumnDefinition Width="300" />
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+
+			<Rectangle Fill="#FFD3A3"
+					   Grid.Row="1"
+					   Grid.ColumnSpan="4"
+					   Margin="3,3,3,3" />
+
+			<Button Name="ButtonUpdate"
+					Style="{StaticResource ResourceKey=ButtonRequest}"
+					FontSize="20"
+					Margin="7,7,7,7"
+					Grid.Column="0"
+					Grid.Row="1">
+				Обновить
+			</Button>
+
+			<TextBlock  Name="TextBlocStatusUpdate"
+						Style="{StaticResource ResourceKey=TextBlockNames}"
+						FontSize="20"
+						Grid.Column="1"
+						Grid.Row="1"
+						HorizontalAlignment="Left"
+						Foreground="Gray">
+			</TextBlock>
+		</Grid>
+	</Grid>
+</Window>

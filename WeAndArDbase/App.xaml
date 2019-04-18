@@ -1,0 +1,10 @@
+﻿<Application x:Class="WeAndArDbase.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WeAndArDbase"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+		<FontFamily x:Key="GansFont">pack://application:,,,/Fonts/#mr_ChargerG</FontFamily>
+		<FontFamily x:Key="NoNaMe">pack://application:,,,/Fonts/#NoNaMeClassic</FontFamily>
+	</Application.Resources>
+</Application>
